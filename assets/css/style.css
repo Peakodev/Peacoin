@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #011022;
+  color: #ccc;
+  margin: 0px;
+  padding: 0px;
+  font-family: monospace;
+  font-size: 16px;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #03152b 1px, transparent 1px), linear-gradient(to bottom, #03152b 1px, transparent 1px);
+}
+
+.graph {
+  background-image: url("../img/bg.svg");
+  width: 60vw;
+  height: 60vh;
+  border: white solid 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  transition: all 1s linear;
+  min-height: 60%;
+  display: flex;
+  align-items: flex-end;
+  animation: none;
+}
+@keyframes scaleChart {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(1.2);
+  }
+}
+
+.candle-box {
+  flex-shrink: 0;
+  transition: all 0.5s;
+  margin-left: 3px;
+  position: relative;
+  animation: showCandle 5s linear forwards;
+}
+@keyframes showCandle {
+  0% {
+    transform: scaleY(0.1);
+  }
+  20% {
+    transform: scaleY(0.7);
+  }
+  50% {
+    transform: scaleY(0.4);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.candle {
+  color: inherit;
+  width: 11px;
+  background-color: currentColor;
+  height: 100%;
+}
+.candle::after {
+  content: "";
+  width: 1px;
+  background-color: currentColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 130%;
+}
+
+.candle-up {
+  color: #04c793;
+  transform-origin: bottom;
+}
+
+.candle-down {
+  color: #fa4b62;
+  transform-origin: top;
+}
+
+/*# sourceMappingURL=style.css.map */
